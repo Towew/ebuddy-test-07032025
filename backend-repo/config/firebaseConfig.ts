@@ -1,5 +1,5 @@
 import * as admin from "firebase-admin";
-var serviceAccount = require("../serviceAccountKey.json");
+const serviceAccount = require(process.env.FIREBASE_SERVICE_ACCOUNT_KEY_PATH);
 
 // Inisialisasi Firebase Admin
 if (!admin.apps.length) {
