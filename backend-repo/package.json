@@ -4,20 +4,31 @@
   "main": "./core/app.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node core/app"
+    "dev": "ts-node core/app",
+    "build": "tsc",
+    "env-setup": "copy serviceAccountKey.json functions && copy .env functions && npm i",
+    "serve": "npm run env-setup && cd ./functions && npm run build && firebase emulators:start --only functions"
+  },
+  "engines": {
+    "node": "18"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "@types/express": "^5.0.0",
+    "copy": "^0.3.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "firebase": "^11.4.0",
-    "firebase-admin": "^13.2.0"
+    "firebase-admin": "^13.2.0",
+    "firebase-functions": "^6.0.1"
   },
   "devDependencies": {
     "@types/node": "^22.13.10",
+    "firebase-functions-test": "^3.1.0",
+    "firebase-tools": "^13.33.0",
     "ts-node": "^10.9.2",
     "tslib": "^2.8.1",
     "typescript": "^5.8.2"

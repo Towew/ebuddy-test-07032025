@@ -8,4 +8,3 @@ export interface User {
     numberOfRents: number;
     recentlyActive: FirebaseTimestamp; //--> Epoch Time
 }
-
